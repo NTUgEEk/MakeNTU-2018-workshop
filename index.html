@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>2018 MakeNTU Workshop</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="css/style.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<section>
+						<h2>2018 MakeNTU 工作坊</h2>
+						<h4>3/25@三創11F</h4>
+						<p>
+							<small>Created by <a href="https://make.ntuee.org/#info">MakeNTU Mentors</a></small>
+						</p>
+					</section>
+
+					<section>
+						<h2>Slides Link</h2>
+						<h4>
+              <a href="https://ntugeek.github.io/makentu-2018">https://ntugeek.github.io/makentu-2018</a>
+					  </h4>
+						<p>
+							To export pdf:
+						</p>
+						<ul>
+							<li>
+								Click this <a href="https://ntugeek.github.io/makentu-2018?print-pdf">link</a>
+							</li>
+							<li>
+								<b class="blue-text">Print</b> this page as pdf
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>講師們</h2>
+						<div class="row-flex-container">
+	            <div class="col-flex-container">
+	              <img src="img/fang.jpg" width="300px" />
+	              <p>方致偉</p>
+	            </div>
+	            <div class="col-flex-container">
+	              <img src="img/shen.png" width="300px" />
+	              <p>沈昶劭</p>
+	            </div>
+	          </div>
+					</section>
+				</section>
+				<section>
+					<section>
+					  <h2>今天要做的東西...</h2>
+					</section>
+					<section>
+						<h1>小車Againnnnn</h1>
+						<img src="img/car.jpg" alt="caaaaaaar" style="width: 70%"/>
+					</section>
+					<section>
+						<h2>小車Powered by...</h2>
+						<ul>
+							<li>
+								<a href="https://cloud.google.com/speech/">Google Cloud Speech API</a>
+							</li>
+							<li>
+								<a href="https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/">
+								  Azure Computer Vision API
+							  </a>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h1>Demo</h1>
+					</section>
+				</section>
+        <section>
+          <h2>它可以做的有...</h2>
+          <h3 class="fragment"><span class="blue-text">Two modes</span></h3>
+          <ul>
+            <li class="fragment">Speech Mode</li>
+            <li class="fragment">CV Mode</li>
+          </ul>
+        </section>
+				<section>
+					<section>
+						<h2>Speech Mode</h2>
+					</section>
+          <section>
+            <h2>Requirements</h2>
+            <ul>
+              <li class="fragment">聽聲音指令</li>
+              <li>左右轉</li>
+            </ul>
+          </section>
+				</section>
+        <section>
+          <section>
+            <h2>CV Mode</h2>
+          </section>
+          <section >
+            <h2>CV = <span class="blue-text">Curriculum Vitae</span>?</h2>
+            <img src="" alt="cv"/>
+          </section>
+        </section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
