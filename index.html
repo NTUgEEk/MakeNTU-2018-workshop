@@ -24,10 +24,10 @@
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
 		<!--[if lt IE 9]>
@@ -52,30 +52,37 @@
 
 					<section>
 						<h2>Slides Link</h2>
-						<h4>
-              <a href="https://ntugeek.github.io/makentu-2018">https://ntugeek.github.io/makentu-2018</a>
-					  </h4>
+						<small>
+              <a href="https://ntugeek.github.io/MakeNTU-2018-workshop/">https://ntugeek.github.io/MakeNTU-2018-workshop/</a>
+					  </small>
 						<p>
 							To export pdf:
 						</p>
 						<ul>
 							<li>
-								Click this <a href="https://ntugeek.github.io/makentu-2018?print-pdf">link</a>
+								Click this <a href="https://ntugeek.github.io/MakeNTU-2018-workshop/?print-pdf">link</a>
 							</li>
 							<li>
 								<b class="blue-text">Print</b> this page as pdf
 							</li>
 						</ul>
+            <p>
+              Usage:
+            </p>
+            <ul>
+              <li>Press "Space" to next page or action</li>
+              <li>Press "Esc" to navigate</li>
+            </ul>
 					</section>
 
 					<section>
 						<h2>講師們</h2>
 						<div class="row-flex-container">
-	            <div class="col-flex-container">
+	            <div class="col-flex-container" style="margin-left: 120px !important">
 	              <img src="img/fang.jpg" width="300px" />
 	              <p>方致偉</p>
 	            </div>
-	            <div class="col-flex-container">
+	            <div class="col-flex-container" style="margin-left: 120px !important">
 	              <img src="img/shen.png" width="300px" />
 	              <p>沈昶劭</p>
 	            </div>
@@ -123,7 +130,7 @@
             <h2>Requirements</h2>
             <ul>
               <li class="fragment">聽聲音指令</li>
-              <li>左右轉</li>
+              <li class="fragment">左右轉 &amp; 停止</li>
             </ul>
           </section>
 				</section>
@@ -131,9 +138,124 @@
           <section>
             <h2>CV Mode</h2>
           </section>
-          <section >
+          <section>
             <h2>CV = <span class="blue-text">Curriculum Vitae</span>?</h2>
             <img src="" alt="cv"/>
+          </section>
+          <section>
+            <h2>Requirements</h2>
+            <div class="col-flex-container">
+              <ul>
+                <li class="fragment">從相機看指令</li>
+                <li class="fragment">左右轉 &amp; 停止</li>
+              </ul>
+              <img src="" alt="photo sample"/>
+            </div>
+          </section>
+        </section>
+        <section>
+            <h1>How To??</h1>
+        </section>
+        <section>
+          <section>
+            <h2>系統架構</h2>
+            <img src="" alt="architecture"/>
+          </section>
+          <section>
+            <h2>HTTP 通訊協定</h2>
+            <img src="img/client-server.jpg" alt="client-server" style="width: 90%"/>    
+          </section>
+          <section>
+            <h2>API</h2>
+            <p>=Application Programming Interface</p>
+            <p>=黑盒子(?)</p>
+          </section>
+          <section>
+            <h2>API Playground</h2>
+            <ul>
+              <li>
+                <a href="https://cloud.google.com/speech/">Google Cloud Speech API</a>
+              </li>
+              <li>
+                <a href="https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/">
+                  Azure Computer Vision API
+                </a>
+              </li>
+            </ul>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ## Closer Look
+
+              ```
+              vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/"
+              vision_analyze_url = vision_base_url + "analyze"
+              image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
+              import requests
+              headers  = {'Ocp-Apim-Subscription-Key': subscription_key }
+              params   = {'visualFeatures': 'Categories,Description,Color'}
+              data     = {'url': image_url}
+              response = requests.post(vision_analyze_url, headers=headers, params=params, json=data)
+              response.raise_for_status()
+              analysis = response.json()
+              ```
+            </script>
+          </section>
+          <section>
+            <h2>Response</h2>
+            <img src="img/api_response.png"/>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Server</h2>
+            <ul>
+              <li class="fragment">
+                定義API的URL(網址)
+              </li>
+              <li class="fragment">
+                處理request，回應response
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>Client</h2>
+            <ul>
+              <li class="fragment">
+                對正確的URL發出request(GET, POST, ...)
+              </li>
+              <li class="fragment">
+                處理response(直接顯示給user, 畫圖...)
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <h2>Exercise</h2>
+          <p>Simple Python server &amp; client</p>
+        </section>
+        <section>
+          <section>
+            <h2>Python Server with Flask</h2>
+          </section>
+          <section>
+            <h2>Setup</h2>
+            <div class="col-flex-container">
+              <ul>
+                <li class="fragment">
+                  連上RPi@@
+                </li>
+                <li class="fragment">
+                  可參考此<a href="https://ntugeek.github.io/makentu-rpi-2017/">Reference</a>
+                </li>
+                <li class="fragment">
+                  <s>不過應該沒什麼用</s>
+                </li>
+                <li class="fragment">
+                  所以請求助大腿or助教
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
 			</div>
