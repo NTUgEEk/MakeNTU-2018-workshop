@@ -76,19 +76,34 @@
 					</section>
 
 					<section>
-						<h2>講師們</h2>
-						<div class="row-flex-container">
-	            <div class="col-flex-container" style="margin-left: 120px !important">
-	              <img src="img/fang.jpg" width="300px" />
-	              <p>方致偉</p>
-	            </div>
-	            <div class="col-flex-container" style="margin-left: 120px !important">
-	              <img src="img/shen.png" width="300px" />
-	              <p>沈昶劭</p>
-	            </div>
-	          </div>
+						<h2>Mentor</h2>
+              <div class="row-flex-container">
+  	            <div class="col-flex-container" style="flex: 1">
+  	              <img src="img/shen.png" width="300px"/>
+  	              <p>沈昶劭</p>
+  	            </div>
+                <div style="flex: 1;">
+                  <p style="margin-left: -300px">電機三</p>
+                  <ul style="font-size: 30px">
+                    <li>開發板(Arduino, RPi, Linkit...)</li>
+                    <li>3D繪圖 &amp; 列印</li>
+                    <li>Web(React), Android App</li>
+                    <li>DL with Tensorflow</li>
+                  </ul>
+                </div>
+              </div>
 					</section>
 				</section>
+        <section>
+          <h2>Assumption</h2>
+          <p>每組至少有一個人...</p>
+          <ol style="font-size: 35px">
+            <li class="fragment">聽過Linux</li>
+            <li class="fragment">會用Linux</li>
+            <li class="fragment">聽過Raspberry Pi</li>
+            <li class="fragment">會用Raspberry Pi<br>(ssh or serial連線, GPIO...)</li>
+          </ol>
+        </section>
 				<section>
 					<section>
 					  <h2>今天要做的東西...</h2>
@@ -154,21 +169,17 @@
           </section>
         </section>
         <section>
-            <h1>How To??</h1>
+          <h1>How To??</h1>
         </section>
         <section>
-          <section>
-            <h2>系統架構</h2>
-            <img src="" alt="architecture"/>
-          </section>
           <section>
             <h2>HTTP 通訊協定</h2>
             <img src="img/client-server.jpg" alt="client-server" style="width: 90%"/>    
           </section>
           <section>
             <h2>API</h2>
-            <p>=Application Programming Interface</p>
-            <p>=黑盒子(?)</p>
+            <p class="fragment">=Application Programming Interface</p>
+            <p class="fragment">=黑盒子(?)</p>
           </section>
           <section>
             <h2>API Playground</h2>
@@ -231,16 +242,48 @@
           </section>
         </section>
         <section>
-          <h2>Exercise</h2>
-          <p>Simple Python server &amp; client</p>
+          <h2>Let's make it!!</h2>
+          <img src="" alt="make car"/>
         </section>
         <section>
           <section>
-            <h2>Python Server with Flask</h2>
+            <h2>系統架構</h2>
+            <img src="" alt="architecture"/>
+          </section>
+        </section>
+        <section>
+            <h2>Setup</h2>
+        </section>
+        <section>
+          <section>
+            <h2>Car Setup</h2>
           </section>
           <section>
-            <h2>Setup</h2>
+            <div class="row-flex-container">
+              <h1 style="font-size: 500px; flex: 1">裝</h1>
+              <div style="display: flex; align-items: center; flex: 2">
+                <img src="img/car.jpg" alt="car"/>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2>Wiring</h2>
+            <ol>
+              <li><a href="https://pinout.xyz/">RPi pinout</a></li>
+              <li><a href="https://learn.sparkfun.com/tutorials/servo-trigger-hookup-guide">Servo</a>(pwm_pin: 18)</li>
+              <li><a href="https://github.com/mxgxw/MFRC522-python">MFRC522</a></li>
+              <li>Motor with <a href="http://www.ti.com/lit/ds/symlink/l293.pdf">L293D</a>(motor_pin: 23)
+                <br>
+                控制一個馬達即可，L293D其中一個input可接地
+              </li>
+              <li>webcam: 插USB</li>
+            </ol>
+          </section>
+        </section>
+        <section>
+          <section>
             <div class="col-flex-container">
+              <h2>RPi setup</h2>
               <ul>
                 <li class="fragment">
                   連上RPi@@
@@ -257,6 +300,63 @@
               </ul>
             </div>
           </section>
+          <section data-markdown>
+            <script type="type/template">
+              ## Clone(~~克隆~~) the code
+
+              ```
+              git clone https://github.com/stationaryfront/2018-MakeNTU-workshop-code
+              ```
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="type/template">
+              ## Code Structure
+              * <span class="blue-text">`car/`</span>: mainly code for RPi except <span class="blue-text">`car/tools/`</span>
+              * <span class="blue-text">`car_app/`</span>: web app for controlling RPi(純demo,可以先不理)
+            </script>
+          </section>
+        </section>
+        <section>
+          <h2>API Setup</h2>
+          <ol>
+            <li><a href="https://cloud.google.com/speech/docs/reference/libraries#client-libraries-install-python">Google Cloud Speech API</a><b style="color: red">(Do it on your local pc!!!)</b></li>
+            <li><a href="https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe">Azure CV API</a>(等等會需要複製這個key)</li>
+          </ol>
+        </section>
+        <section>
+          <h1>TODO</h1>
+        </section>
+        <section>
+          <section>
+            <h2>Speech mode</h2>
+          </section>
+          <section>
+            
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>CV mode</h2>
+          </section>
+        </section>
+        <section>
+          <h2>Appendix &ndash; Exercise</h2>
+          <p>Simple Python server &amp; client</p>
+        </section>
+        <section>
+          <section>
+            <h2>Python Server with Flask</h2>
+          </section>
+          <section>
+            <h2>Setup</h2>
+            <div class="col-flex-container">
+              <p>
+                連上RPi@@
+              </p>
+            </div>
+          </section>
+          
         </section>
 			</div>
 
