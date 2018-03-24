@@ -84,7 +84,7 @@
   	            </div>
                 <div style="flex: 1; ">
                   <p style="margin-left: -300px">沈昶劭</p>
-                  <p style="margin-left: -335px; font-size: 30px">電機三</p>
+                  <p style="margin-left: -220px; font-size: 30px">台大電機三年級</p>
                   <ul style="font-size: 30px">
                     <li>開發板(Arduino, RPi, LinkIt...)</li>
                     <li>3D繪圖 &amp; 列印</li>
@@ -112,7 +112,7 @@
 					  <h2>今天要做的東西...</h2>
 					</section>
 					<section>
-						<h1>小車Againnnnn</h1>
+						<h1>車車Againnnnn</h1>
 						<img src="img/car.jpg" alt="caaaaaaar" style="width: 70%"/>
 					</section>
 					<section>
@@ -163,12 +163,25 @@
                 <li class="fragment">從相機看指令</li>
                 <li class="fragment">左右轉 &amp; 停止</li>
               </ul>
-              <img src="" alt="photo sample"/>
+              <img src="img/right.jpg" alt="photo sample" style="width: 70%" />
             </div>
           </section>
         </section>
         <section>
           <h1>How To??</h1>
+        </section>
+        <section>
+          <section>
+            <h2>系統架構</h2>
+          </section>
+          <section>
+            <h2>CV mode 架構</h2>
+            <img src="img/system_cv.jpg" style="width: 70%" />
+          </section>
+          <section>
+            <h2>Speech mode 架構</h2>
+            <img src="img/system_speech.jpg" style="width: 70%"/>
+          </section>
         </section>
         <section>
           <section>
@@ -213,7 +226,7 @@
           </section>
           <section>
             <h2>Response</h2>
-            <img src="img/api_response.png"/>
+            <img src="img/api_response.jpg"/>
           </section>
         </section>
         <section>
@@ -242,12 +255,19 @@
         </section>
         <section>
           <h2>Let's make it!!</h2>
-          <img src="" alt="make car"/>
+          <img src="img/car_full.jpg" alt="make car"/>
         </section>
         <section>
           <section>
             <h2>系統架構</h2>
-            <img src="" alt="architecture"/>
+          </section>
+          <section>
+            <h2>CV mode 架構</h2>
+            <img src="img/system_cv.jpg" style="width: 70%" />
+          </section>
+          <section>
+            <h2>Speech mode 架構</h2>
+            <img src="img/system_speech.jpg" style="width: 70%"/>
           </section>
         </section>
         <section>
@@ -261,16 +281,19 @@
             <div class="row-flex-container">
               <h1 style="font-size: 500px; flex: 1">裝</h1>
               <div style="display: flex; align-items: center; flex: 2">
-                <img src="img/car.jpg" alt="car"/>
+                <img src="img/car_full.jpg" alt="car" />
               </div>
             </div>
+          </section>
+          <section>
+            <img src="img/wheel.jpg"/>
           </section>
           <section>
             <h2>Wiring</h2>
             <ol>
               <li><a href="https://pinout.xyz/">RPi pinout</a></li>
               <li><a href="https://learn.sparkfun.com/tutorials/servo-trigger-hookup-guide">Servo</a>(pwm_pin: 18)</li>
-              <li><a href="https://github.com/mxgxw/MFRC522-python">MFRC522</a></li>
+              <li><a href="https://github.com/mxgxw/MFRC522-python">MFRC522</a>(pin name的GPIO為BCM)</li>
               <li>Motor with <a href="http://www.ti.com/lit/ds/symlink/l293.pdf">L293D</a>(motor_pin: 23)
                 <br>
                 控制一個馬達即可，L293D其中一個input可接地
@@ -281,6 +304,9 @@
           <section>
             <h2>L293d wiring</h2>
             <img src="img/l293d.png" style="width: 70%"/>
+          </section>
+          <section>
+            <img src="img/car_2.jpg"/>
           </section>
         </section>
         <section>
@@ -359,7 +385,7 @@
               python3 app.py
 
               ```
-              open browser with URL {PI_URL}:5000 to see the streaming video
+              open browser with URL {PI_IP}:5000 to see the streaming video
             </script>
           </section>
         </section>
@@ -386,6 +412,16 @@
             <br><br>
             <a href="http://flask.pocoo.org/docs/0.12/quickstart/">Reference</a>
           </section>
+          <section data-markdown>
+            <script type="text/template">
+              ## Check
+              資料夾位置: car/
+              * RPi端: `python3 server.py speech`
+              * PC端: `python3 tools/speech.py`
+
+              開始語音控制
+            </script>
+          </section>
         </section>
         <section>
           <section>
@@ -409,6 +445,15 @@
               <li><a href="https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_video_display/py_video_display.html">OpenCV Reference</a></li>
             </ul>
           </section>
+          <section data-markdown>
+            <script type="text/template">
+              ## Check
+              資料夾位置: car/
+              * RPi端: `python3 server.py text`
+
+              開始走迷宮，用瀏覽器發/forward request開始
+            </script>
+          </section>
         </section>
         <section>
           <section>
@@ -419,12 +464,13 @@
             <ul>
               <li>編輯<code>car/rfid_thread.py</code> 使車子讀到RFID卡時停止</li>
               <br>
-              <li>編輯<code>car/rfid_thread.py</code> 使車子讀到RFID卡時停止後開始聽取speech或CV的指令</li>
+              <li>編輯<code>car/server.py</code> 使車子讀到RFID卡時停止後開始聽取speech或CV的指令</li>
             </ul>
             <br><br>
             <a href="https://github.com/mxgxw/MFRC522-python">Reference</a>
           </section>
         </section>
+        <!--
         <section>
           <h2>Appendix &ndash; Web App</h2>
           <img src="" alt="web app"/>
@@ -441,6 +487,7 @@
             
           </section>
         </section>
+      -->
 			</div>
 
 		</div>
